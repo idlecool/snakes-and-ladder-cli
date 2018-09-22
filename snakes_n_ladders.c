@@ -27,10 +27,11 @@
 */
 
 //snakes and ladders implementation in C
-
+#include<unistd.h>//for tput clear
+#include<stdlib.h> // for linux gcc
 #include <stdio.h>
 #include <time.h>
-main()
+int main()
 {
 int a=0,b=0,p=0,e=0,f,x,y=0,i;
 char n;
@@ -43,21 +44,30 @@ srand(t);
 
 while (1)
 {
+ 
+printf("----------------------------------------------------------------------------\n");
+printf("----------------------------------------------------------------------------\n");
+printf("\n\t\t Snake & Ladder Game\n");
+
+printf("----------------------------------------------------------------------------\n");
 f=(e%2)+1;			//condition to swap player 1 and player 2
-printf("Player %d turn\n",f);
+printf("\n\tPlayer %d turn\n",f);
 
  
 while(1)				//rolling dice
   {
-  printf("Press Enter/Return to roll the dice");
+  printf("\n\tPress Enter/Return to roll the dice");
   scanf("%c",&n);
   if (n==10)		// 10 is the ASCII code of return/enter or line break \n
     {
     x=(rand()%6)+1;
     break;
-    }     
+    }
+    else
+    printf("\n\t please Press Enter/Return to roll the dice");
+          
   }
-  printf("The dice tuned to be : %d\n",x);	//rolling dice
+  printf("\n\tThe dice tuned to be : %d\n",x);	//rolling dice
 
 
 
@@ -67,16 +77,19 @@ while(1)		// case when dice turns to be 6
   break;
   while(1)		// loop condition to roll the dice
     {
-    printf("Your dice returned to be 6. So, \n");
-    printf("Press Enter/Return to roll the dice again");
+    printf("\n\tYour dice returned to be 6. So, \n");
+    printf("\tPress Enter/Return to roll the dice again");
     scanf("%c",&n);		// 10 is the ASCII code for return/enter or line break \n
     if (n==10)
       {
       y=(rand()%6)+1;
       break;
       }
+    else
+    printf("\n\t please Press Enter/Return to roll the dice");
+          
     }			// end of dice loop
-   printf("The new dice value is %d\n",y);
+   printf("\n\tThe new dice value is %d\n",y);
    x=x+y;
    }		//end of case 6
 
@@ -101,26 +114,33 @@ else if (p+x <= 100)
 if (f==1)
   {
   a=p;			//geting back the value of a from a dummy value
-  printf("Player 1 value = %d\n",a);
   }
 if (f==2)
   {
-  b=p;			//getting back the value of b from a dummy value
-  printf("Player 2 value = %d\n",b);
+  b=p;			//getting back the value of b from a dummy value  
   }
 
 if (a==100)
   {
-  printf("Player 1 wins the game\n");		//case when player 1 wins
+  printf("\n\tPlayer 1 wins the game\n");		//case when player 1 wins
   break;
   }
 if (b==100)
   {
-  printf("Player 2 wins the game\n");		//case when player 2 wins
+  printf("\n\tPlayer 2 wins the game\n");		//case when player 2 wins
   break;
   }
 e++;
+printf("\t\tPlayer 1 is at:  %d\n",a);
+printf("\t\tPlayer 2 is at:  %d\n\n",b);
+printf("----------------------------------------------------------------------------\n");
+printf("\n\t\t Press enter to continue....");
+printf("\n----------------------------------------------------------------------------\n");
+scanf("%c",&n);
+system("tput clear");
 }
-
-printf("Game Over\n");				//end of the game, end of all loops
+printf("----------------------------------------------------------------------------\n");
+printf("\n\tGame Over\n");				//end of the game, end of all loops
+printf("\n\t  Thank you for playing....");  
+printf("\n----------------------------------------------------------------------------\n");
 }
