@@ -44,12 +44,12 @@ srand(t);
 while (1)
 {
 f=(e%2)+1;			//condition to swap player 1 and player 2
-printf("Player %d turn\n",f);
+printf("Player %d Turn\n",f);
 
  
 while(1)				//rolling dice
   {
-  printf("Press Enter/Return to roll the dice");
+  printf("Press Enter/Return to Roll the the dice");
   scanf("%c",&n);
   if (n==10)		// 10 is the ASCII code of return/enter or line break \n
     {
